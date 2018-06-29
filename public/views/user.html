@@ -1,0 +1,47 @@
+<div class="container ">
+    <form name="github" class="top-space">
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="formData.username" placeholder="Github username" name="search" required>
+            <span class="error" ng-show="github.search.$touched && github.search.$invalid">The username is required.</span>
+            <br>
+            <div class="input-group-btn">
+                <button class="btn btn-default" ng-disabled="github.search.$invalid" class="submit-position" ng-click="search()" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </div>
+
+        </div>
+    </form>
+    <p></p>
+    <p>Public Repositories of {{username}}</p>
+
+    <div class="table-responsive">
+        <table datatable = "ng" id="myTable" class="display table" width="100%">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Repository name</th>
+                    <th>Id</th>
+                    <th>Repository Updated Date</th>
+                    <th>Repository Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in publicRepo">
+                    <td>{{$index + 1}}</td>
+                    <td>{{x.repoName}}</td>
+                    <td>{{x.id}}</td>
+                    <td>{{x.repoUpdatedDate}}</td>
+                    <td>{{x.repoCreatedDate}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable({searching: false,lengthChange:false,ordering:false});
+} );
+</script>

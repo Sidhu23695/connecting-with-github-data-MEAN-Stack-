@@ -1,0 +1,11 @@
+.top-space {
+    padding-top: 40px
+}
+
+.error{
+    color: red
+}
+
+.submit-position{
+    position: fixed;
+}
