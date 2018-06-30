@@ -32,7 +32,7 @@ userRouter.get('/getInfo/:username', async (req, res) => {
     const githubData = await fetch(`https://api.github.com/users/${req.params.username}/repos`);
     const json = await githubData.json();
     let formData = {
-      gitHubUsername: 'ugendarkumar',
+      gitHubUsername: `${req.params.username}`,
       publicRepositories: []
     };
     for (let i = 0; i < json.length; i++) {
